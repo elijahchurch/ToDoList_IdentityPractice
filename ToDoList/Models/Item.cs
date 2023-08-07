@@ -1,8 +1,10 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ToDoList.Models
 {
+  [Authorize]
   public class Item
   {
     public int ItemId { get; set; }
@@ -12,5 +14,6 @@ namespace ToDoList.Models
     public int CategoryId { get; set; }
     public Category Category { get; set; }
     public List<ItemTag> JoinEntities { get;}
+    public ApplicationUser User { get; set; } 
   }
 }
